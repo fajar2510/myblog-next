@@ -41,7 +41,11 @@ export default function Login() {
             throw new Error("Wrong Credentials")
         }
        })
-       router.push('/')
+       .finally(() => {
+         router.push('/')
+         alert("Login Credentials Validated")
+       })
+      
     }
 
   return (
