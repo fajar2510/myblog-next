@@ -50,12 +50,12 @@ export async function PUT(
         throw new Error("Invalid blogId");
     }
 
-    const updatedBlog = await prisma.blog.update({
+    const updated = await prisma.blog.update({
         where: {
             id: blogId,
         },
         data:json
     })
 
-    return NextResponse.json(updatedBlog);
+    return NextResponse.json(updated);
  }
