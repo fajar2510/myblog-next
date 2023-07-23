@@ -38,13 +38,16 @@ export default function Create() {
 
         axios.post('/api/blogs', state)
         .then(() => {
-            router.push('/')
+            router.refresh();
         })
 
         .catch((err) => {
-           throw new Error(`failed to create blog: ${err.message}`)
+           throw new Error(`Failed to create blog: ${err.message}`)
         })
-        router.refresh();
+        .finally(() => {
+            router.push("/")
+            console.log("Successfully created blog")
+        })
     }
 
   return (
